@@ -1,0 +1,10 @@
+venv/
+.env
+__pycache__/
+*.pyc
+.vscode/
+uploads/
+*.pdf
+backend/vector_store/
+*.faiss
+*.pkl
