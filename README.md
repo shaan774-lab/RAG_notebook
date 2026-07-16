@@ -16,7 +16,7 @@ The diagram below details the end-to-end workflow from PDF upload and ingestion 
 ```mermaid
 graph TD
     %% Ingestion Flow
-    subgraph Ingestion Pipeline
+    subgraph IP [Ingestion Pipeline]
         A[User Uploads PDF] --> B[Save PDF to local /uploads]
         B --> C[Extract Text using PyPDF2]
         C --> D[Chunk Text: RecursiveCharacterSplitter size=500, overlap=100]
@@ -25,7 +25,7 @@ graph TD
     end
 
     %% Query and RAG Flow
-    subgraph Retrieval & Generation RAG
+    subgraph RAG [Retrieval & Generation RAG]
         G[User enters Query/Prompt] --> H[Generate Query Embedding]
         F -->|Search Vector Space| I[FAISS Semantic Search: Retrieve top-k chunks]
         H --> I
@@ -37,8 +37,8 @@ graph TD
         L -->|3. Generate Mindmap| O[Hierarchical Text Mind Map]
     end
 
-    style Ingestion Pipeline fill:#111827,stroke:#3b82f6,stroke-width:2px,color:#fff
-    style Retrieval & Generation RAG fill:#111827,stroke:#10b981,stroke-width:2px,color:#fff
+    style IP fill:#111827,stroke:#3b82f6,stroke-width:2px,color:#fff
+    style RAG fill:#111827,stroke:#10b981,stroke-width:2px,color:#fff
 ```
 
 ---
